@@ -27,11 +27,22 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.reduce((orangeKitties, kitty) => {
+      if (kitty.color === 'orange') {
+        orangeKitties.push(kitty.name);
+      }
+      return orangeKitties;
+    }, []);
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    // We are give a single array of kitty objects & want to return an array of the kitty's names who are "orange".
+    // At first glance, this seemed like a filter/map problem, which indicated that I could attempt to solve it with a reduce prototype. On each iteration of reduce, we check for objects with a property of color assigned to orange & push that kitty's name to our accumulator (orangeKitties).
+    
+    // 1) Iterate over array of kitties
+    // 2) Grab each kitty that has a property "color" with a value of "orange" (filter prototype method)
+    // 3) Return the names of each of these kitties in an array (map method)
   },
 
   sortByAge() {
