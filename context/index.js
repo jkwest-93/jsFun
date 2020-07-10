@@ -16,11 +16,11 @@ const context = {
 
 
     // What is the value of `this` when we call ship.fly()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = "global window object";
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    //When we call ship.fly(), the value of `this` is the global window object.
   },
 
   exerciseB() {
@@ -30,11 +30,11 @@ const context = {
     }
 
     // What is the value of `this` when we call fn()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // When we call fn(), the value of this is still the global window object.
   },
 
   exerciseC() {
@@ -49,11 +49,11 @@ const context = {
     el.addEventListener('click', car.getInfo);
 
     // What is the value of `this` when a user clicks on our element and car.getInfo() is triggered?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'el';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // When a user clicks on the button and car.getInfo() is triggered, the value of `this` is el.
   },
 
   exerciseD() {
@@ -72,11 +72,11 @@ const context = {
     var breed = dog.getBreed();
 
     // What is the value of `this` when we call breed()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'breed';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // What is call breed()? If we are calling getBreed(), the value of this is the dog instance??
   },
 
   exerciseE() {

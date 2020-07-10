@@ -131,11 +131,29 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.map((currentMod) => {
+      return {
+        mod: currentMod.mod,
+        studentsPerInstructor: (currentMod.students / currentMod.instructors)
+      };
+    });
     return result;
 
-    // Annotation:
-    // Write your annotation here as a comment
+    /*
+    Annotation:
+    We're starting with an array of objects
+      Each key has a value of a number
+    We want to return an array of objects
+      Array is equal length to input
+      Keys: mod, studentsPerInstructor (divide original.students by original.instructors)
+    mods.map(), on each iteration...
+      Each element of array to be an object
+      {
+        mod: original.mod,
+        studentsPerInstructor: original.students / original.instructors
+      }
+    return a new array built out piece by piece
+    */
   }
 };
 
