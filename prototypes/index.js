@@ -27,40 +27,45 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.reduce((orangeKitties, kitty) => {
+      if (kitty.color === 'orange') {
+        orangeKitties.push(kitty.name);
+      }
+      return orangeKitties;
+    }, []);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // We are give a single array of kitty objects & want to return an array of the kitty's names who are "orange".
+    // At first glance, this seemed like a filter/map problem, which indicated that I could attempt to solve it with a reduce prototype. On each iteration of reduce, we check for objects with a property of color assigned to orange & push that kitty's name to our accumulator (orangeKitties).
+
+    // 1) Iterate over array of kitties
+    // 2) Grab each kitty that has a property "color" with a value of "orange" (filter prototype method)
+    // 3) Return the names of each of these kitties in an array (map method)
   },
 
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort(function(a, b) {
+      return b.age - a.age;
+    });
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Since I want to return an array that's the same length, sorted by increasing age, I'm using the sort method. When you give the sort method a second argument, you can start to compare elements in an array against each other, allowing you to order these kitties by their age. The test lets me know I want them sorted by oldest to youngest, so I use b.age - a.age.
   },
 
   growUp() {
-    // Return an array of kitties who have all grown up by 2 years e.g.
-    // [{
-    //   name: 'Felicia',
-    //   age: 4,
-    //   color: 'grey'
-    // },
-    // {
-    //   name: 'Tiger',
-    //   age: 7,
-    //   color: 'orange'
-    // },
-    // ...etc]
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    this.sortByAge(kitties);
+    const result = kitties.map((kitty) => {
+      kitty.age += 2;
+      return kitty;
+    });
     return result;
   }
+
+  //Annotation: I'm starting with an array of kitty objects and want to return the same array with all of the kitties adding two years to their age property. I'm going to use the map() method, which is a mutator that allows me to apply a function/manipulate each element in an array. In the map(), we'll specify kitty.age += 2
 };
 
 
